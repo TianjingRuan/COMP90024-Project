@@ -6,6 +6,8 @@ import KeplerGl from "kepler.gl";
 import keplerGlReducer from "kepler.gl/reducers";
 import { taskMiddleware } from "react-palm/tasks";
 import useSwr from "swr";
+
+
 const reducers = combineReducers({
     keplerGl: keplerGlReducer
 });
@@ -53,8 +55,8 @@ function KeplerGlMap() {
 
     return (
         <KeplerGl
-            id="covid"
-            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
+            id="test"
+            mapboxApiAccessToken={'pk.eyJ1IjoiYWltZWVydWFuIiwiYSI6ImNrbzNwYmVvazAwaXkycHM2ZmM0NWNsdnoifQ.G-LRGMdLQJcEcxwh1eNdHw'}
             width={window.innerWidth}
             height={window.innerHeight}
         />
