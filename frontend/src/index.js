@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LanguageMap from './languageMap'
-import SuburbMap from "./suburbMap";
+import LanguageMap from "./components/languageMap";
+
+function Container(){
+    return[
+        <LanguageMap />
+    ]
+}
 
 ReactDOM.render(
-    // <LanguageMap />,
-    <SuburbMap />,
+    <Container />,
     document.getElementById('root')
 );
