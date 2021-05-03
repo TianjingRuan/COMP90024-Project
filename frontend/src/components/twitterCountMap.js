@@ -8,7 +8,7 @@ import { addDataToMap } from "kepler.gl/actions";
 
 import suburbData from "../data/sampleSuburb.json";
 import KeplerGlSchema from "kepler.gl/schemas";
-import languageData from "../data/language.json";
+import twitterCountData from "../data/sampleTwitterCount.json"
 
 const reducers = combineReducers({
     keplerGl: keplerGlReducer.initialState({
@@ -18,7 +18,7 @@ const reducers = combineReducers({
 
 const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 
-export default function LanguageMap() {
+export default function TwitterCountMap() {
     return (
         <Provider store={store}>
             <KeplerGlMap />
@@ -30,11 +30,9 @@ function KeplerGlMap() {
     const dispatch = useDispatch();
 
     React.useEffect(() => {
-        const map = KeplerGlSchema.load(suburbData);
+        const map = KeplerGlSchema.load(twitterCountData);
         // add suburb info to the map
         dispatch(addDataToMap(map));
-        // add points to the map
-        dispatch(addDataToMap(languageData))
     });
 
     return (
