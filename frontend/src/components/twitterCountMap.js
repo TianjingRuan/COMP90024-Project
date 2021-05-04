@@ -6,9 +6,8 @@ import { Provider, useDispatch } from "react-redux";
 import KeplerGl from "kepler.gl";
 import { addDataToMap } from "kepler.gl/actions";
 
-import suburbData from "../data/sampleSuburb.json";
 import KeplerGlSchema from "kepler.gl/schemas";
-import twitterCountData from "../data/sampleTwitterCount.json"
+import twitterCountData from "../data/sampleData/sampleTwitterCount.json"
 
 const reducers = combineReducers({
     keplerGl: keplerGlReducer.initialState({

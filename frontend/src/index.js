@@ -6,7 +6,7 @@ import TwitterCountMap from "./components/twitterCountMap";
 function Container(){
     return[
         <LanguageMap />,
-        // <TwitterCountMap />
+        <TwitterCountMap />
     ]
 }
 
