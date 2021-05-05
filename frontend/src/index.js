@@ -1,16 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LanguageMap from "./components/languageMap";
-import TwitterCountMap from "./components/twitterCountMap";
-
-function Container(){
-    return[
-        <LanguageMap />,
-        <TwitterCountMap />
-    ]
-}
+import './index.css';
+import App from '../../../COMP90024-Project/frontend/src/App';
 
 ReactDOM.render(
-    <Container />,
-    document.getElementById('root')
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
 );
