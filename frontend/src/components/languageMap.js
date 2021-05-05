@@ -8,7 +8,7 @@ import { addDataToMap } from "kepler.gl/actions";
 
 import suburbData from "../data/sampleData/sampleSuburb.json";
 import KeplerGlSchema from "kepler.gl/schemas";
-import languageData from "../data/sampleData/samplelanguage.json";
+import languageData from "../data/sampleData/sampleLanguage.json";
 
 const reducers = combineReducers({
     keplerGl: keplerGlReducer.initialState({
