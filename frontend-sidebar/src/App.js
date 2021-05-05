@@ -13,10 +13,10 @@ class App extends React.Component{
         <Navbar />
         <Switch>
           <Route path='/pages/home' exact component={Home} />
-          <Route path='/map/language' exact component={Language} />
-          <Route path='/map/sentiment' exact component={Sentiment} />
-          <Route path='/diagram/barchart' exact component={BarChart} />
-          <Route path='/diagrams/wordcloud' exact component={WordCloud} />
+          <Route path='/pages/map/language' exact component={Language} />
+          <Route path='/pages/map/sentiment' exact component={Sentiment} />
+          <Route path='/pages/diagram/barchart' exact component={BarChart} />
+          <Route path='/pages/diagrams/wordcloud' exact component={WordCloud} />
         </Switch>
       </Router>
       </div>
