@@ -43,8 +43,8 @@ function KeplerGlMap() {
                 id="covid"
                 mapboxApiAccessToken="pk.eyJ1Ijoib2xpdmlhMTMxNCIsImEiOiJjazljMnkweGYwMHN2M29vN2h5N3Y0Z2p3In0.ii0pWAJQE5VJWg_X-84MSw" //process.env.REACT_APP_MAPBOX_API}
                 // adjust the map size
-                width={1000}
-                height={600}
+                width={window.innerWidth}
+                height={window.innerHeight}
             />
         </div>
     );

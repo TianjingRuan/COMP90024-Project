@@ -1,6 +1,6 @@
 {
   "datasets":[
-    {
+    { "version":"v1",
       "data":{
         "id":"melbourne",
         "label":"melbourne.json",
