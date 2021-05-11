@@ -14,12 +14,12 @@ export const SidebarData = [
     subNav: [
         {
           title: "Language",
-          path: "pages/map/language",
+          path: "/pages/map/language",
           icon: <IoIcons.IoIosPaper />,
         },
         {
           title: "Sentiment analysis",
-          path: "pages/map/sentiment",
+          path: "/pages/map/sentiment",
           icon: <IoIcons.IoIosPaper />,
         },
       ],
@@ -34,12 +34,12 @@ export const SidebarData = [
     subNav:[
         {
             title:"Bar chart",
-            path:"pages/diagram/barchart",
+            path:"/pages/diagram/barchart",
             icon: <IoIcons.IoIosPaper />,
         },
         {
             title:"Word Cloud",
-            path:"pages/diagram/wordcloud",
+            path:"/pages/diagram/wordcloud",
             icon:<IoIcons.IoIosPaper />,
         }
     ]

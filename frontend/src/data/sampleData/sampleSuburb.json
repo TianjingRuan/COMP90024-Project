@@ -2,8 +2,6 @@
   "datasets":[
     { "version":"v1",
       "data":{
-        "id":"melbourne",
-        "label":"melbourne.json",
         "allData":[
           [
             {
@@ -735,8 +733,6 @@
     {
       "version":"v1",
       "data":{
-        "id":"sydney",
-        "label":"sydney.json",
         "allData":[
           [
             {
@@ -1151,9 +1147,5 @@
     }
   ],
   "config":{},
-  "info":{
-    "app":"kepler.gl",
-    "title":"keplergl",
-    "description":""
-  }
+  "info":{}
 }
