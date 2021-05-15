@@ -1,4 +1,5 @@
 import React from "react";
+import WordCloudDiagram from "../components/wordCloudDiagram";
 
 export const BarChart = () => {
   return (
@@ -7,10 +8,12 @@ export const BarChart = () => {
     </div>
   );
 };
-export const WordCloud= () => {
+
+export const WordCloud = () => {
   return (
     <div>
-      <h1>Word cloud</h1>
+        <h1>Word cloud</h1>
+        <WordCloudDiagram />
     </div>
   );
 };
