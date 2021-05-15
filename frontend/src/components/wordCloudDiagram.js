@@ -5,7 +5,7 @@ import { TagCloud } from 'react-tagcloud'
 export default function WordCloudDiagram() {
     return <TagCloud
         minSize={12}
-        maxSize={100}
+        maxSize={35}
         tags={wordData}
     />
 }

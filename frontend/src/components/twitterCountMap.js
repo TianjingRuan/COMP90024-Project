@@ -17,7 +17,7 @@ const reducers = combineReducers({
 
 const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 
-export default function TwitterCountMap() {
+export default function TwitterCountMap(props) {
     return (
         <Provider store={store}>
             <KeplerGlMap />

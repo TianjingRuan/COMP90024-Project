@@ -1,5 +1,6 @@
 import React from "react";
 import WordCloudDiagram from "../components/wordCloudDiagram";
+import "./diagram.css"
 
 export const BarChart = () => {
   return (
@@ -11,9 +12,11 @@ export const BarChart = () => {
 
 export const WordCloud = () => {
   return (
-    <div>
+    <div className="page">
         <h1>Word cloud</h1>
-        <WordCloudDiagram />
+        <div className="diagram">
+            <WordCloudDiagram/>
+        </div>
     </div>
   );
 };
