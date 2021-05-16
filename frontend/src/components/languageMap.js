@@ -9,6 +9,7 @@ import { addDataToMap } from "kepler.gl/actions";
 import suburbData from "../data/sampleData/sampleSuburb.json";
 import KeplerGlSchema from "kepler.gl/schemas";
 import languageData from "../data/sampleData/sampleLanguage.json";
+import { useLocation } from 'react-router-dom';
 
 const reducers = combineReducers({
     keplerGl: keplerGlReducer.initialState({
@@ -18,7 +19,10 @@ const reducers = combineReducers({
 
 const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 
-export default function LanguageMap() {
+export default function LanguageMap(props) {
+    const location = useLocation();
+    console.log("Try to access through components");
+    console.log(location);
     return (
         <Provider store={store}>
             <KeplerGlMap />
