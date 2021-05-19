@@ -1,0 +1,165 @@
+{
+  "datasets":[
+    { "version":"v1",
+      "label": "Sydney",
+      "data":{
+        "allData":[
+        ],
+        "fields":[
+          {
+            "name":"_geojson",
+            "type":"geojson",
+            "format":"",
+            "analyzerType":"GEOMETRY"
+          },
+          {
+            "name":"Suburb Name",
+            "type":"string",
+            "format":"",
+            "analyzerType":"STRING"
+          },
+          {
+            "name":"City Name",
+            "type":"string",
+            "format":"",
+            "analyzerType":"STRING"
+          },
+          {
+            "name":"Chinese Count",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          },
+          {
+            "name":"English Count",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          }
+        ]
+      }
+    },
+    {
+      "version":"v1",
+      "label": "Melbourne",
+      "data":{
+        "allData":[
+        ],
+        "fields":[
+          {
+            "name":"_geojson",
+            "type":"geojson",
+            "format":"",
+            "analyzerType":"GEOMETRY"
+          },
+          {
+            "name":"Suburb Name",
+            "type":"string",
+            "format":"",
+            "analyzerType":"STRING"
+          },
+          {
+            "name":"City Name",
+            "type":"string",
+            "format":"",
+            "analyzerType":"STRING"
+          },
+          {
+            "name":"Chinese Count",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          },
+          {
+            "name":"English Count",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          }
+        ]
+      }
+    },
+    {
+      "version":"v1",
+      "label": "Adelaide",
+      "data":{
+        "allData":[
+        ],
+        "fields":[
+          {
+            "name":"_geojson",
+            "type":"geojson",
+            "format":"",
+            "analyzerType":"GEOMETRY"
+          },
+          {
+            "name":"Suburb Name",
+            "type":"string",
+            "format":"",
+            "analyzerType":"STRING"
+          },
+          {
+            "name":"City Name",
+            "type":"string",
+            "format":"",
+            "analyzerType":"STRING"
+          },
+          {
+            "name":"Chinese Count",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          },
+          {
+            "name":"English Count",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          }
+        ]
+      }
+    },
+    {
+      "version":"v1",
+      "label": "Brisbane",
+      "data":{
+        "allData":[
+        ],
+        "fields":[
+          {
+            "name":"_geojson",
+            "type":"geojson",
+            "format":"",
+            "analyzerType":"GEOMETRY"
+          },
+          {
+            "name":"Suburb Name",
+            "type":"string",
+            "format":"",
+            "analyzerType":"STRING"
+          },
+          {
+            "name":"City Name",
+            "type":"string",
+            "format":"",
+            "analyzerType":"STRING"
+          },
+          {
+            "name":"Chinese Count",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          },
+          {
+            "name":"English Count",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          }
+        ]
+      }
+    }
+  ],
+  "config":{},
+  "info":{}
+}

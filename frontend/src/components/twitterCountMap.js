@@ -6,8 +6,9 @@ import { Provider, useDispatch } from "react-redux";
 import KeplerGl from "kepler.gl";
 import { addDataToMap } from "kepler.gl/actions";
 
+import twitterCountDataFrame from "../data/twitterCountDataFrame.json";
+import suburbData from "../data/suburbData.json"
 import KeplerGlSchema from "kepler.gl/schemas";
-import twitterCountData from "../data/sampleData/sampleTwitterCount.json"
 
 const reducers = combineReducers({
     keplerGl: keplerGlReducer.initialState({
@@ -20,16 +21,39 @@ const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 export default function TwitterCountMap(props) {
     return (
         <Provider store={store}>
-            <KeplerGlMap />
+            <KeplerGlMap twitterCountData={props.twitterCountData}/>
         </Provider>
     );
 }
 
-function KeplerGlMap() {
+function KeplerGlMap(props) {
     const dispatch = useDispatch();
+    Object.keys(props.twitterCountData).forEach(function(city) {
+        Object.keys(props.twitterCountData[city]).forEach(function(suburb) {
+            const geoJson = suburbData[city][suburb];
+            // Error Handling: skip suburb for geoJson not found
+            if (geoJson == null) {
+                console.log(suburb + " coordinates not found")
+                return;
+            }
+            const twitterCount = props.twitterCountData[city][suburb];
+            if (city === 'Sydney') {
+                twitterCountDataFrame["datasets"][0]["data"]["allData"].push([geoJson, suburb, city, twitterCount])
+            }
+            if (city === 'Melbourne') {
+                twitterCountDataFrame["datasets"][1]["data"]["allData"].push([geoJson, suburb, city, twitterCount])
+            }
+            if (city === 'Adelaide') {
+                twitterCountDataFrame["datasets"][2]["data"]["allData"].push([geoJson, suburb, city, twitterCount])
+            }
+            if (city === 'Brisbane') {
+                twitterCountDataFrame["datasets"][3]["data"]["allData"].push([geoJson, suburb, city, twitterCount])
+            }
+        })
+    })
 
     React.useEffect(() => {
-        const map = KeplerGlSchema.load(twitterCountData);
+        const map = KeplerGlSchema.load(twitterCountDataFrame);
         // add suburb info to the map
         dispatch(addDataToMap(map));
     });
@@ -37,7 +61,7 @@ function KeplerGlMap() {
     return (
         <div>
             <KeplerGl
-                id="covid"
+                // id="covid"
                 mapboxApiAccessToken="pk.eyJ1Ijoib2xpdmlhMTMxNCIsImEiOiJjazljMnkweGYwMHN2M29vN2h5N3Y0Z2p3In0.ii0pWAJQE5VJWg_X-84MSw" //process.env.REACT_APP_MAPBOX_API}
                 // adjust the map size
                 width={window.innerWidth}

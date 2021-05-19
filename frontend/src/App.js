@@ -3,8 +3,8 @@ import React from "react";
 import Navbar from './components/navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/home';
-import {BarChart,WordCloud} from "./pages/diagram";
-import {Language,Sentiment} from "./pages/map";
+import {BarChart,TagCloud} from "./pages/diagram";
+import {Language,TwitterCount} from "./pages/map";
 
 
 class App extends React.Component{
@@ -16,9 +16,9 @@ class App extends React.Component{
         <Switch>
           <Route path='/pages/home' exact component={Home} />
           <Route path='/pages/map/language' exact component={Language} />
-          <Route path='/pages/map/sentiment' exact component={Sentiment} />
+          <Route path='/pages/map/count' exact component={TwitterCount} />
           <Route path='/pages/diagram/barchart' exact component={BarChart} />
-          <Route path='/pages/diagram/wordcloud' exact component={WordCloud} />
+          <Route path='/pages/diagram/tagcloud' exact component={TagCloud} />
         </Switch>
       </Router>
       </div>

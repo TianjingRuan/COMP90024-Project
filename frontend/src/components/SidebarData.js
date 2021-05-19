@@ -18,8 +18,8 @@ export const SidebarData = [
           icon: <IoIcons.IoIosPaper />,
         },
         {
-          title: "Sentiment analysis",
-          path: "/pages/map/sentiment",
+          title: "Tweet Count",
+          path: "/pages/map/count",
           icon: <IoIcons.IoIosPaper />,
         },
       ],
@@ -38,8 +38,8 @@ export const SidebarData = [
             icon: <IoIcons.IoIosPaper />,
         },
         {
-            title:"Word Cloud",
-            path:"/pages/diagram/wordcloud",
+            title:"Tag Cloud",
+            path:"/pages/diagram/tagcloud",
             icon:<IoIcons.IoIosPaper />,
         }
     ]

@@ -1,24 +1,24 @@
 import React from "react";
 import LanguageMap from "../components/languageMap";
 import TwitterCountMap from "../components/twitterCountMap";
+// Todo: Retrieve from backend
+import languageData from "../data/sampleData/sampleLanguage.json"
+import twitterCountData from "../data/sampleData/sampleTwitterCount.json"
 
-export const Language = (props) => {
-    const {foo} = props
-    console.log(foo)
-    console.log("hello")
+export const Language = () => {
   return (
     <div className="page">
       <h1>Language Map</h1>
-      <LanguageMap />
+      <LanguageMap languageData={languageData}/>
     </div>
   );
 };
 
-export const Sentiment = () => {
+export const TwitterCount = () => {
   return (
     <div className="page">
-      <h1>Sentiment analysis</h1>
-      <TwitterCountMap />
+      <h1>Twitter Count</h1>
+      <TwitterCountMap twitterCountData={twitterCountData} />
     </div>
   );
 };
