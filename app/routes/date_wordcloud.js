@@ -42,7 +42,10 @@ var getDaysArray = function(start, end) {
 
 
 router.get('/', function (req, res){
-    
+    res.set({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    });
     // nano get views: db.view(design name, view name)
     lans = db.view('wordcloud', 'wordcloud', {reduce: true, group_level: 2}, function(err, data) {    
 

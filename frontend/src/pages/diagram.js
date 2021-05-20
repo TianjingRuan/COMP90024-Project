@@ -9,35 +9,25 @@ import cityLanguageNew from "../data/sampleData/citydateLanguageNew.json";
 import axios from 'axios';
 export const BarChart = () => {
   //todo: connect with backend to fetch data
-  const [result, setResult] = useState(null);
-  // useEffect(() => {
-  //   axios.get('http://localhost:5000/scenario/city_date_language')
-  //   .then((response)=>{
-  //     const data=response.data;
-  //     console.log("The data is ");
-  //     console.log(data);
-  //     setResult(data);
-  //     // axios returns API response body in .data
-  //   })
-  //   }, []);
+  const [result, setResult] = useState(cityLanguageNew);
 
   useEffect(() => {
-        fetch('http://localhost:5000/scenario/city_date_language')
-        .then(data => console.log(data))
-        // .then(data => data.json())
-        // .then(data => console.log(data))
-        // .then(data => setResult(data));
-    }, []);
+      fetch("/scenario/city_date_language")
+      .then(data => data.json(data))
+      .then(data => setResult(data));
+  }, []);
+
   console.log("The result gotten from bar chart");
   console.log(result);
-  // var Ade=result.adelaide;
-  // var Syd=result.sydney;
-  // var Bri=result.brisbane;
-  // var Mel=result.melbourne;
-  var Ade=cityLanguageNew.adelaide;
-  var Syd=cityLanguageNew.sydney;
-  var Bri=cityLanguageNew.brisbane;
-  var Mel=cityLanguageNew.melbourne;
+  // console.log(result);
+  var Ade=result.adelaide;
+  var Syd=result.sydney;
+  var Bri=result.brisbane;
+  var Mel=result.melbourne;
+  // var Ade=cityLanguageNew.adelaide;
+  // var Syd=cityLanguageNew.sydney;
+  // var Bri=cityLanguageNew.brisbane;
+  // var Mel=cityLanguageNew.melbourne;
   console.log("The data in Sydney");
   console.log(Syd);
   return (
@@ -54,21 +44,23 @@ export const BarChart = () => {
 };
 
 export const TagCloud = () => {
-  const [result, setResult] = useState(null);
-  useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users')
-    .then((response)=>{
-      const data=response.data;
-      console.log("The data is ");
-      console.log(data);
-      setResult(data[1].company.name);
-      // axios returns API response body in .data
-    })
-    }, []);
+  const [result, setResult] = useState(wordData);
+  console.log("initial result");
+  console.log(result);
+
+    useEffect(() => {
+      fetch("http://localhost:5000/scenario/date_wordcloud")
+      .then(data => data.json(data))
+      .then(data => setResult(data));
+  }, []);
+
+
     console.log("The result gotten from world cloud");
     console.log(result);
+    // wordData = result;
+    console.log(wordData);
     var wordCloudDiagrams = []
-    Object.keys(wordData).forEach(function(time) {
+    Object.keys(result).forEach(function(time) {
         wordCloudDiagrams.push(
             <div className="diagram">
                 <WordCloudDiagram wordData={wordData[time]} time={time}/>

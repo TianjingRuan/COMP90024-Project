@@ -5,22 +5,21 @@ services:
             context: ./app
         ports:
             - "5000:5000"
-        networks:
-            - macos_couchdb_nw
-            - new_network
+        # networks:
+        #     - macos_couchdb_nw
+        #     - new_network
             
     reactapp:
         build:
             context: ./frontend
         ports:
             - "3000:3000"
-        networks:
-            - new_network
+        # networks:
+        #     - new_network
         depends_on: 
             - nodeserver
         links:
             - nodeserver
-            
 
     nginx:
         restart: always
@@ -28,12 +27,12 @@ services:
             context: ./nginx
         ports:
             - "80:80"
-        networks:
-            - macos_couchdb_nw
+        # networks:
+        #     - macos_couchdb_nw
 
-networks:
-  macos_couchdb_nw:
-    driver: bridge
-    name: macos_couchdb_nw
-  new_network:
-    driver: bridge
+# networks:
+#   macos_couchdb_nw:
+#     driver: bridge
+#     name: macos_couchdb_nw
+#   new_network:
+#     driver: bridge

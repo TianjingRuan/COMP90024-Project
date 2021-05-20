@@ -17,7 +17,10 @@ app.use(express.urlencoded({
 
 
 router.get('/', function (req, res){
-    console.log(req)
+    res.set({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    });
     // nano get views: db.view(design name, view name)
     lans = db.view('language', 'cityDateLanguage', {reduce: true, group_level: 3}, function(err, data) {    
         if (!err) {  
@@ -86,7 +89,7 @@ router.get('/', function (req, res){
                   }
                   city_stats[city] = dates_sorted
             }
-            console.log(city_stats)
+            // console.log(city_stats)
             res.json(city_stats)
         } 
         else {

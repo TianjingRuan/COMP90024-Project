@@ -16,7 +16,10 @@ app.use(express.urlencoded({
 }));
 
 router.get('/', function (req, res){
-    
+  res.set({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    });
     // nano get views: db.view(design name, view name)
     lans = db.view('language', 'language', {reduce: true, group_level: 1, descending: true}, function(err, data) {    
         if (!err) {  
