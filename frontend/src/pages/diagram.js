@@ -10,26 +10,34 @@ import axios from 'axios';
 export const BarChart = () => {
   //todo: connect with backend to fetch data
   const [result, setResult] = useState(null);
+  // useEffect(() => {
+  //   axios.get('http://localhost:5000/scenario/city_date_language')
+  //   .then((response)=>{
+  //     const data=response.data;
+  //     console.log("The data is ");
+  //     console.log(data);
+  //     setResult(data);
+  //     // axios returns API response body in .data
+  //   })
+  //   }, []);
+
   useEffect(() => {
-    axios.get('/scenario/city_date_language')
-    .then((response)=>{
-      const data=response.json();
-      // console.log("The data is ");
-      // console.log(data);
-      setResult(data);
-      // axios returns API response body in .data
-    })
+        fetch('http://localhost:5000/scenario/city_date_language')
+        .then(data => console.log(data))
+        // .then(data => data.json())
+        // .then(data => console.log(data))
+        // .then(data => setResult(data));
     }, []);
   console.log("The result gotten from bar chart");
   console.log(result);
-  var Ade=result.adelaide;
-  var Syd=result.sydney;
-  var Bri=result.brisbane;
-  var Mel=result.melbourne;
-  // var Ade=cityLanguageNew.adelaide;
-  // var Syd=cityLanguageNew.sydney;
-  // var Bri=cityLanguageNew.brisbane;
-  // var Mel=cityLanguageNew.melbourne;
+  // var Ade=result.adelaide;
+  // var Syd=result.sydney;
+  // var Bri=result.brisbane;
+  // var Mel=result.melbourne;
+  var Ade=cityLanguageNew.adelaide;
+  var Syd=cityLanguageNew.sydney;
+  var Bri=cityLanguageNew.brisbane;
+  var Mel=cityLanguageNew.melbourne;
   console.log("The data in Sydney");
   console.log(Syd);
   return (
