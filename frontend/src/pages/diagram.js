@@ -24,10 +24,6 @@ export const BarChart = () => {
   var Syd=result.sydney;
   var Bri=result.brisbane;
   var Mel=result.melbourne;
-  // var Ade=cityLanguageNew.adelaide;
-  // var Syd=cityLanguageNew.sydney;
-  // var Bri=cityLanguageNew.brisbane;
-  // var Mel=cityLanguageNew.melbourne;
   console.log("The data in Sydney");
   console.log(Syd);
   return (
@@ -44,26 +40,23 @@ export const BarChart = () => {
 };
 
 export const TagCloud = () => {
-  const [result, setResult] = useState(wordData);
+  const [worddata, setWorldCloud] = useState(wordData);
   console.log("initial result");
-  console.log(result);
-
+  console.log(worddata);
     useEffect(() => {
       fetch("http://localhost:5000/scenario/date_wordcloud")
       .then(data => data.json(data))
-      .then(data => setResult(data));
+      .then(data => setWorldCloud(data));
   }, []);
-
-
     console.log("The result gotten from world cloud");
-    console.log(result);
+    console.log(worddata);
     // wordData = result;
-    console.log(wordData);
+    console.log(worddata);
     var wordCloudDiagrams = []
-    Object.keys(result).forEach(function(time) {
+    Object.keys(worddata).forEach(function(time) {
         wordCloudDiagrams.push(
             <div className="diagram">
-                <WordCloudDiagram wordData={wordData[time]} time={time}/>
+                <WordCloudDiagram wordData={worddata[time]} time={time}/>
             </div>
         )
     })
