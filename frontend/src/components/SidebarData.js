@@ -18,7 +18,7 @@ export const SidebarData = [
           icon: <IoIcons.IoIosPaper />,
         },
         {
-          title: "Tweet Count",
+          title: "Twitter Count",
           path: "/pages/map/count",
           icon: <IoIcons.IoIosPaper />,
         },
