@@ -31,11 +31,10 @@ function KeplerGlMap(props) {
     const dispatch = useDispatch();
     Object.keys(props.twitterCountData).forEach(function(city) {
         Object.keys(props.twitterCountData[city]).forEach(function(suburb) {
-            const geoJson = suburbData[city][suburb];
             // Error Handling: skip suburb for geoJson not found
-            if (geoJson == null) {
-                console.log(suburb + " coordinates not found")
-                return;
+            let geoJson;
+            if (suburbData[city].hasOwnProperty(suburb)) {
+                geoJson = suburbData[city][suburb];
             }
             const twitterCount = props.twitterCountData[city][suburb];
             let femalePopulation;

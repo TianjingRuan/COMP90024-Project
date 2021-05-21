@@ -30,10 +30,9 @@ function KeplerGlMap(props) {
     const dispatch = useDispatch();
     Object.keys(props.languageData).forEach(function(city) {
         Object.keys(props.languageData[city]).forEach(function(suburb) {
-            const geoJson = suburbData[city][suburb];
-            if (geoJson == null) {
-                console.log(suburb + " coordinates not found")
-                return;
+            let geoJson;
+            if (suburbData[city].hasOwnProperty(suburb)) {
+                geoJson = suburbData[city][suburb];
             }
             const spanish = props.languageData[city][suburb]["Spanish"];
             const indonesian = props.languageData[city][suburb]["Indonesian"];
