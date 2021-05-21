@@ -60,8 +60,13 @@ const SubMenu = ({ item }) => {
       </SidebarLink>
       {subnav &&
         item.subNav.map((item, index) => {
+          var result;
+          fetch('https://jsonplaceholder.typicode.com/posts/1')
+          .then(res => res.json())
+          .then(data => result= data)
+          .then(() => console.log(result))
           return (
-            <DropdownLink to={{pathname:item.path,state: { name: 'jack', age: 25, city: 'Antwerp'}}} key={index}>
+            <DropdownLink to={{pathname:item.path,state: { name: 'jack', age: 25, city: 'Antwerp',response:result}}} key={index}>
               {item.icon}
               <SidebarLabel>{item.title}</SidebarLabel>
             </DropdownLink>

@@ -1,27 +1,30 @@
 import React, { useState,Component} from 'react';
 import ReactECharts from "echarts-for-react";
-import { populationDataFemale } from "../data/sampleBarChart";
 class TwitterBarChartTime extends Component{
+    constructor(props){
+      super(props);
+      // console.log("The props is");
+      // console.log(props);
+    }
     getOption = () => {
         let districts = [];
-        let years = [];
-        Object.entries(populationDataFemale).forEach(entry => {
-          years = [...years, entry[0]];
+        let dates = [];
+        Object.entries(this.props.data).forEach(entry => {
+          dates = [...dates, entry[0]];
           entry[1].forEach(e => {
             districts = [...new Set([...districts, e.name])];
           });
         });
-        let options = years.map(year => {
+        let options = dates.map(date => {
           let obj = {};
           obj["series"] = [
             {
               stack: "group",
-              data: populationDataFemale[year]
+              data: this.props.data[date]
             },
           ];
-    
           obj["title"] = {
-            text: `Count of language usage across Melbourne, ${year}`
+            text: `Count of language usage across ${this.props.name}, ${date}`
           };
           return obj;
         });
@@ -31,7 +34,7 @@ class TwitterBarChartTime extends Component{
               autoPlay: true,
               axisType: "category",
               bottom: 20,
-              data: years,
+              data: dates,
               height: null,
               inverse: true,
               left: null,

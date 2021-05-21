@@ -39,7 +39,7 @@ export const SidebarData = [
         },
         {
             title:"Word Cloud",
-            path:"/pages/diagram/wordcloud",
+            path:"/pages/diagram/tagcloud",
             icon:<IoIcons.IoIosPaper />,
         }
     ]

@@ -1,6 +1,26 @@
-import React, { useState,Component} from 'react';
+import React, { useState,Component,useEffect} from 'react';
 import ReactECharts from "echarts-for-react";
+import axios from 'axios';
 export default function TwitterBarChart () {
+  const [result, setResult] = useState(null);
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/users')
+    .then((response)=>{
+      const data=response.data;
+      setResult(data[0].company.name);
+      // axios returns API response body in .data
+    })
+  }, [])
+  // var title="";
+  // axios.get(`https://jsonplaceholder.typicode.com/users`)
+  // .then(res => {
+  //   const persons = res.data;
+  //   title=persons[0];
+  //   console.log("The data has been gotten");
+  //   console.log(persons);
+  //   console.log(persons[0].company.name);
+  //   console.log(title);
+  // });
     const options = {
         grid: { top: 8, right: 8, bottom: 24, left: 36 },
         xAxis: {
@@ -21,7 +41,13 @@ export default function TwitterBarChart () {
           trigger: 'axis',
         },
       };
-      return <ReactECharts option={options} />;
+      console.log("The result is");
+      console.log(result);
+      return (
+      <div>
+      <h2 style={{ color: 'red' }}>{result}</h2>
+      <ReactECharts option={options} />
+      </div>);
 }
 //     return(
 //         <ReactEcharts
