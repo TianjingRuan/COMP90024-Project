@@ -44,9 +44,6 @@ router.get('/', function (req, res){
               
               // console.log(date)
               const summary = dates[date];
-              // summary.sort(function(a, b) {
-              //   return b.value - a.value;
-              // });
               
               // console.log(summary)
               const returnJson = [];
@@ -58,13 +55,11 @@ router.get('/', function (req, res){
                   returnJson.push(item)
                 }
               })
-
               // console.log(returnJson)
 
               var top5 = returnJson.slice(0,5);
               top5.forEach(function(value){
                 value["name"] = langDict.find(el => el.code == value.name).name;
-                // console.log(value)
               })
               // console.log(top5)
               dates_sorted[date] = top5

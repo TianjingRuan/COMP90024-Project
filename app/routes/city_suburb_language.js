@@ -22,69 +22,71 @@ router.get('/', function (req, res){
     "Access-Control-Allow-Origin": "*",
     });
     // nano get views: db.view(design name, view name)
-    lans = db.view('language', 'cityDateLanguage', {reduce: true, group_level: 3}, function(err, data) {    
+    lans = db.view('suburb', 'citySuburbLanguage', {reduce: true, group_level: 3}, function(err, data) {    
         if (!err) {  
-            // console.log(data.rows);
 
             const cities = data.rows.reduce((cities, item) => {
-                const day = (cities[item.key[0]] || []);
+                const place = (cities[item.key[0]] || []);
                 
                 var newItem = {
                   key : [item.key[1],item.key[2]],
                   value : item.value
                 }
   
-                day.push(newItem);
-                cities[item.key[0]] = day;
+                place.push(newItem);
+                cities[item.key[0]] = place;
                 return cities;
               }, {});
               
-            // console.log(cities)
             var city_stats = {};
             for (const city in cities) {
                 const summary = cities[city];
-                // console.log(summary)
+   
                 const dates = summary.reduce((dates, item) => {
-                    const day = (dates[item.key[0]] || []);
+                    const place = (dates[item.key[0]] || []);
+                    
                     var newItem = {
                       key : item.key[1],
                       value : item.value
                     }
       
-                    day.push(newItem);
-                    dates[item.key[0]] = day;
+                    place.push(newItem);
+                    dates[item.key[0]] = place;
                     return dates;
                   }, {});
-                //   console.log(dates)
 
                   var dates_sorted = {}
                   for (const date in dates) {
                     
-                    // console.log(date)
                     const summary = dates[date];
-                    
-                    // console.log(summary)
                     const returnJson = [];
-                    const targetLanguage = ['es', 'in', 'ja', 'pt', 'fr']
+                    const targetLanguage = ['es', 'in', 'ja', 'pt']
                     summary.forEach(function (value, index, array){
-                      // if (value.key != 'und') {
+
                       if (targetLanguage.includes(value.key)) {
                         const item = {"name":`${value.key}`, "value": parseInt(value.value)}
                         returnJson.push(item)
                       }
                     })
-                    // console.log(returnJson)
-                    var top5 = returnJson.slice(0,5);
-                    top5.forEach(function(value){
-                      value["name"] = langDict.find(el => el.code == value.name).name;
-                      // console.log(value)
-                    })
-                    // console.log(top5)
+                    returnJson.forEach(function(value){
+                        value["name"] = langDict.find(el => el.code == value.name).name;
+                      })     
+
+                    var top5 = {
+                        "French" : 0, 
+                        "Spanish" : 0,
+                        "Indonesian" : 0,
+                        "Japanese" : 0,
+                        "Portuguese" : 0
+                    }
+                    for (const lang in returnJson) {
+                        const item = returnJson[lang];
+                        top5[item.name] = item.value;
+                    }
                     dates_sorted[date] = top5
                   }
                   city_stats[city] = dates_sorted
             }
-            // console.log(city_stats)
             res.json(city_stats)
         } 
         else {

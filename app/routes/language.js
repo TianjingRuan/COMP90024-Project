@@ -36,7 +36,7 @@ router.get('/', function (req, res){
               }
             })
 
-            var top5 = returnJson.slice(0,5);
+            var top5 = returnJson.slice(0,25);
             top5.forEach(function(value){
               value["name"] = langDict.find(el => el.code == value.name).name;
               // console.log(value)
