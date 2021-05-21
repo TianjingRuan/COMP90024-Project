@@ -15,6 +15,14 @@ app.use(express.urlencoded({
   extended: false
 }));
 
+/* this is how methods are defined in prototype of any built-in Object */
+Object.defineProperty(String.prototype, 'capitalize', {
+  value: function () {
+      return this.charAt(0).toUpperCase() + this.slice(1);
+  },
+  writable: true, // so that one can overwrite it later
+  configurable: true // so that it can be deleted later
+});
 
 router.get('/', function (req, res){
     res.set({
@@ -85,7 +93,7 @@ router.get('/', function (req, res){
                     }
                     dates_sorted[date] = top5
                   }
-                  city_stats[city] = dates_sorted
+                  city_stats[city.capitalize()] = dates_sorted
             }
             res.json(city_stats)
         } 
