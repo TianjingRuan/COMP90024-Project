@@ -3,11 +3,11 @@ import WordCloudDiagram from "../components/wordCloudDiagram";
 // Todo: retrieve from backend
 import wordData from "../data/sampleData/wordcloud.json";
 import "./diagram.css"
-import TwitterBarChart from "../components/twitterBarChart";
 import TwitterBarChartTime from "../components/TwitterBarChartTime";
 import cityLanguageNew from "../data/sampleData/citydateLanguageNew.json";
 import axios from 'axios';
 import { getFieldsFromData } from 'kepler.gl/dist/processors';
+import TwitterBarChart from '../components/twitterBarChart';
 export const BarChart = () => {
   //todo: connect with backend to fetch data
   const [result, setResult] = useState(cityLanguageNew);
@@ -55,21 +55,23 @@ export const TagCloud = () => {
   const [worddata, setWorldCloud] = useState(wordData);
   console.log("initial result");
   console.log(worddata);
-    useEffect(() => {
-      fetch("http://localhost:5000/scenario/date_wordcloud")
+  useEffect(() => {
+    getTagData();
+  }, []);
+  console.log("API testing");
+   async function getTagData(){
+    fetch("http://localhost:5000/scenario/date_wordcloud")
       .then(data => data.json(data))
       .then(data => setWorldCloud(data));
-  }, []);
-    console.log("The result from word cloud is");
-    fetch("http://localhost:5000/scenario/date_wordcloud")
-    .then(data => data.json(data))
-    .then(data=>console.log(data));
+    console.log("Response received");
+    console.log(worddata);
+    }
     console.log("The result gotten from world cloud");
     console.log(worddata);
     // wordData = result;
     console.log(worddata);
     var wordCloudDiagrams = []
-    Object.keys(wordData).forEach(function(time) {
+    Object.keys(worddata).forEach(function(time) {
         wordCloudDiagrams.push(
             <div className="diagram">
                 <WordCloudDiagram wordData={worddata[time]} time={time}/>
