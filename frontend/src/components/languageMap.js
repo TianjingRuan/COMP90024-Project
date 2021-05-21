@@ -35,21 +35,21 @@ function KeplerGlMap(props) {
                 console.log(suburb + " coordinates not found")
                 return;
             }
-            // Todo: modify language types (and modify fields in data frame json)
-            // Todo: add Aurin Data?
-            const chinese = props.languageData[city][suburb]["Chinese"];
-            const english = props.languageData[city][suburb]["English"];
+            const spanish = props.languageData[city][suburb]["Spanish"];
+            const indonesian = props.languageData[city][suburb]["Indonesian"];
+            const japanese = props.languageData[city][suburb]["Japanese"];
+            const portuguese = props.languageData[city][suburb]["Portuguese"];
             if (city === 'Sydney') {
-                languageDataFrame["datasets"][0]["data"]["allData"].push([geoJson, suburb, city, chinese, english])
+                languageDataFrame["datasets"][0]["data"]["allData"].push([geoJson, suburb, spanish, indonesian, japanese, portuguese])
             }
             if (city === 'Melbourne') {
-                languageDataFrame["datasets"][1]["data"]["allData"].push([geoJson, suburb, city, chinese, english])
+                languageDataFrame["datasets"][1]["data"]["allData"].push([geoJson, suburb, spanish, indonesian, japanese, portuguese])
                 }
             if (city === 'Adelaide') {
-                languageDataFrame["datasets"][2]["data"]["allData"].push([geoJson, suburb, city, chinese, english])
+                languageDataFrame["datasets"][2]["data"]["allData"].push([geoJson, suburb, spanish, indonesian, japanese, portuguese])
             }
             if (city === 'Brisbane') {
-                languageDataFrame["datasets"][3]["data"]["allData"].push([geoJson, suburb, city, chinese, english])
+                languageDataFrame["datasets"][3]["data"]["allData"].push([geoJson, suburb, spanish, indonesian, japanese, portuguese])
             }
         })
     })

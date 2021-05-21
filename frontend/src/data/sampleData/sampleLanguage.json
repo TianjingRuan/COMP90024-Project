@@ -1,7 +1,7 @@
 {"Melbourne": {
-  "Banyule": {"Chinese": 150, "English": 250},
-  "Bayside": {"Chinese": 200, "English": 300}},
+  "Banyule": {"Spanish": 150, "Indonesian": 250, "Japanese": 100, "Portuguese": 120},
+  "Bayside": {"Spanish": 15, "Indonesian": 25, "Japanese": 10, "Portuguese": 12}},
   "Sydney": {
-  "Auburn": {"Chinese": 300, "English": 400},
-  "Ashfield": {"Chinese": 20, "English": 20}}
+  "Auburn": {"Spanish": 1500, "Indonesian": 2500, "Japanese": 1000, "Portuguese": 1200},
+  "Ashfield": {"Spanish": 150, "Indonesian": 250, "Japanese": 100, "Portuguese": 120}}
 }
