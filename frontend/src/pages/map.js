@@ -4,14 +4,13 @@ import TwitterCountMap from "../components/twitterCountMap";
 // Todo: Retrieve from backend
 import languageData from "../data/sampleData/sampleLanguage.json"
 import twitterCountData from "../data/sampleData/sampleTwitterCount.json"
-import axios from 'axios';
 export const Language = () => {
   const [result, setResult] = useState(languageData);
   useEffect(() => {
-    fetch("/scenario/city_date_language") //todo: change to correct API 
+    fetch("http://localhost:5000//scenario/city_suburb_language") 
     .then(data => data.json(data))
     .then(data => setResult(data));
-}, []);
+  }, []);
   console.log("The result gotten from language data");
   console.log(result);
   return (
@@ -25,7 +24,7 @@ export const Language = () => {
 export const TwitterCount = () => {
   const [countresult, setCountResult] = useState(twitterCountData);
   useEffect(() => {
-    fetch("/scenario/city_date_language") //todo: change to correct API
+    fetch(" http://localhost:5000//scenario/city_suburb") 
     .then(data => data.json(data))
     .then(data => setCountResult(data));
 }, []);
