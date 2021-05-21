@@ -5,8 +5,7 @@ services:
             context: ./app
         ports:
             - "5000:5000"
-
-            
+      
     reactapp:
         build:
             context: ./frontend
