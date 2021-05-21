@@ -84,10 +84,8 @@ router.get('/', function (req, res){
               });
 
               var top5 = returnJson.slice(0,20);
-
               dates_sorted[date] = top5
             };
-
             res.json(dates_sorted)
         } 
         else {

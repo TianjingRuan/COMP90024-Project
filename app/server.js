@@ -48,7 +48,7 @@ const suburb = {
   "views": {
       "citySuburbLanguage": {
         "reduce": "_sum",
-        "map": "function(doc) {\n  if (doc.lang && doc.date && doc.suburb) {\n emit([doc.suburb, doc.date, doc.lang], 1);\n  }\n}"
+        "map": "function(doc) {\n  if (doc.lang && doc.city && doc.suburb) {\n emit([doc.city, doc.suburb, doc.lang], 1);\n  }\n}"
       },
       "suburbLanguage": {
         "reduce": "_sum",
@@ -92,6 +92,8 @@ app.use('/scenario/city_date_language', require('./routes/city_date_language'));
 app.use('/scenario/date_wordcloud', require('./routes/date_wordcloud'));
 app.use('/scenario/date_wordcloud4', require('./routes/date_wordcloud_4d'));
 app.use('/scenario/suburb', require('./routes/suburb'));
+app.use('/scenario/city_suburb', require('./routes/city_suburb'));
+app.use('/scenario/city_suburb_language', require('./routes/city_suburb_language'));
 
 // All routes are placed above
 

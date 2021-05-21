@@ -12,7 +12,7 @@ export const BarChart = () => {
   const [result, setResult] = useState(cityLanguageNew);
 
   useEffect(() => {
-      fetch("/scenario/city_date_language")
+      fetch("http://localhost:5000/scenario/city_date_language")
       .then(data => data.json(data))
       .then(data => setResult(data));
   }, []);
