@@ -29,6 +29,18 @@
             "type":"integer",
             "format":"",
             "analyzerType":"INT"
+          },
+          {
+            "name":"Male Population",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          },
+          {
+            "name":"Female Population",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
           }
         ]
       }
@@ -60,6 +72,18 @@
           },
           {
             "name":"Twitter Count",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          },
+          {
+            "name":"Male Population",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          },
+          {
+            "name":"Female Population",
             "type":"integer",
             "format":"",
             "analyzerType":"INT"
@@ -97,6 +121,18 @@
             "type":"integer",
             "format":"",
             "analyzerType":"INT"
+          },
+          {
+            "name":"Male Population",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          },
+          {
+            "name":"Female Population",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
           }
         ]
       }
@@ -128,6 +164,18 @@
           },
           {
             "name":"Twitter Count",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          },
+          {
+            "name":"Male Population",
+            "type":"integer",
+            "format":"",
+            "analyzerType":"INT"
+          },
+          {
+            "name":"Female Population",
             "type":"integer",
             "format":"",
             "analyzerType":"INT"

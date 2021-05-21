@@ -9,6 +9,8 @@ import { addDataToMap } from "kepler.gl/actions";
 import twitterCountDataFrame from "../data/twitterCountDataFrame.json";
 import suburbData from "../data/suburbData.json"
 import KeplerGlSchema from "kepler.gl/schemas";
+// Todo: change Aurin data
+import populationData from "../data/sampleData/sampleAurinData.json";
 
 const reducers = combineReducers({
     keplerGl: keplerGlReducer.initialState({
@@ -37,17 +39,24 @@ function KeplerGlMap(props) {
                 return;
             }
             const twitterCount = props.twitterCountData[city][suburb];
+            let femalePopulation;
+            let malePopulation;
+            // if aurin Data contains the population information of suburb
+            if (populationData[city].hasOwnProperty(suburb)) {
+                femalePopulation = populationData[city][suburb]['female'];
+                malePopulation = populationData[city][suburb]['male'];
+            }
             if (city === 'Sydney') {
-                twitterCountDataFrame["datasets"][0]["data"]["allData"].push([geoJson, suburb, city, twitterCount])
+                twitterCountDataFrame["datasets"][0]["data"]["allData"].push([geoJson, suburb, city, twitterCount, malePopulation, femalePopulation])
             }
             if (city === 'Melbourne') {
-                twitterCountDataFrame["datasets"][1]["data"]["allData"].push([geoJson, suburb, city, twitterCount])
+                twitterCountDataFrame["datasets"][1]["data"]["allData"].push([geoJson, suburb, city, twitterCount, malePopulation, femalePopulation])
             }
             if (city === 'Adelaide') {
-                twitterCountDataFrame["datasets"][2]["data"]["allData"].push([geoJson, suburb, city, twitterCount])
+                twitterCountDataFrame["datasets"][2]["data"]["allData"].push([geoJson, suburb, city, twitterCount, malePopulation, femalePopulation])
             }
             if (city === 'Brisbane') {
-                twitterCountDataFrame["datasets"][3]["data"]["allData"].push([geoJson, suburb, city, twitterCount])
+                twitterCountDataFrame["datasets"][3]["data"]["allData"].push([geoJson, suburb, city, twitterCount, malePopulation, femalePopulation])
             }
         })
     })
