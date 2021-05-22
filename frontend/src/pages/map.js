@@ -7,7 +7,7 @@ import twitterCountData from "../data/sampleData/sampleTwitterCount.json"
 export const Language = () => {
   const [result, setResult] = useState(languageData);
   useEffect(() => {
-    fetch("http://localhost:5000//scenario/city_suburb_language") 
+    fetch("http://localhost:5000/scenario/city_suburb_language") 
     .then(data => data.json(data))
     .then(data => setResult(data));
   }, []);
@@ -24,7 +24,7 @@ export const Language = () => {
 export const TwitterCount = () => {
   const [countresult, setCountResult] = useState(twitterCountData);
   useEffect(() => {
-    fetch(" http://localhost:5000//scenario/city_suburb") 
+    fetch(" http://localhost:5000/scenario/city_suburb") 
     .then(data => data.json(data))
     .then(data => setCountResult(data));
 }, []);
