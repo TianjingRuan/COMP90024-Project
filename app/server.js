@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-
+var cors = require('cors')
 
 // require nano and set params
 const username = 'admin';
@@ -15,6 +15,7 @@ app.use(express.urlencoded({
   extended: false
 }));
 
+app.use(cors())
 // define map reduce view
 
 

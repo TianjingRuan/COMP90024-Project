@@ -8,7 +8,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # run npm install in our local machine
-RUN npm install
+RUN npm install yarn
+RUN yarn
 
 # copy the generated modules and all other files to the container
 COPY . .
@@ -17,4 +18,4 @@ COPY . .
 EXPOSE 3000
 
 # the command that starts our app
-CMD ["npm", "start"]
+CMD ["yarn", "start"]

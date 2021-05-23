@@ -12,7 +12,7 @@ export const BarChart = () => {
   const [result, setResult] = useState(cityLanguageNew);
 
   useEffect(() => {
-      fetch("http://localhost:5000/scenario/city_date_language")
+      fetch("/scenario/city_date_language")
       .then(data => data.json(data))
       .then(data => setResult(data));
   }, []);
@@ -44,7 +44,7 @@ export const TagCloud = () => {
   console.log("initial result");
   console.log(worddata);
     useEffect(() => {
-      fetch("http://localhost:5000/scenario/date_wordcloud")
+      fetch("/scenario/date_wordcloud")
       .then(data => data.json(data))
       .then(data => setWorldCloud(data));
   }, []);
