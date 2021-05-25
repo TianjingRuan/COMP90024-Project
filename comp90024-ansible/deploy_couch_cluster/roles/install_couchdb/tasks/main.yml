@@ -1,0 +1,8 @@
+---
+
+
+- name: Pull default Docker image
+  become: yes
+  docker_image:
+    name: "{{ couchdb_image }}"
+    source: pull

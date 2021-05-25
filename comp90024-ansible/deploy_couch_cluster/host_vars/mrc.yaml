@@ -1,0 +1,16 @@
+couchdb_user: admin
+couchdb_pass: admin
+couchdb_VERSION: '3.1.1'
+couchdb_cookie: 'a192aeb9904e6590849337933b000c99'
+couchdb_uuid: 'a192aeb9904e6590849337933b001159'
+cluster_name: '_cluster_setup'
+couchdb_container_name: 'couchdb_'
+couchdb_port: 5984
+couchdb_db_name: "live-tweets"
+couchdb_image: ibmcom/couchdb3:3.1.1
+masternode: 172.26.130.24
+othernodes: 
+  - 172.26.132.40
+MRC_websrver:
+  - 172.26.130.24
+  - 172.26.132.40

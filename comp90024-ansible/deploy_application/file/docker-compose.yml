@@ -1,0 +1,21 @@
+version: "3.3"
+services:
+    nodeserver:
+        image: yuehenry/node
+        ports:
+            - "5000:5000"
+
+    reactapp:
+        image: yuehenry/react
+        ports:
+            - "3000:3000"
+        depends_on:
+            - nodeserver
+        links:
+            - nodeserver
+
+    nginx:
+        restart: always
+        image: yuehenry/ng
+        ports:
+            - "80:80"
