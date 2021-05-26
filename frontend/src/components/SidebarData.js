@@ -5,7 +5,7 @@ import * as RiIcons from "react-icons/ri";
 
 export const SidebarData = [
   {
-    title: 'Map Scanrio',
+    title: 'Maps',
     path: '/',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text',
@@ -25,7 +25,7 @@ export const SidebarData = [
       ],
   },
   {
-    title: 'Diagram',
+    title: 'Diagrams',
     path: '/reports',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text',
