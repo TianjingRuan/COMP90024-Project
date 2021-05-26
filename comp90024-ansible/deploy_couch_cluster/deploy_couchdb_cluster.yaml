@@ -1,0 +1,18 @@
+---
+
+- hosts: MRC_websrver
+  vars_files:
+    - host_vars/mrc.yaml
+  gather_facts: true
+
+  roles:
+    - role: install_couchdb
+    - role: deploy_couchdb
+
+- hosts: masternode
+  vars_files:
+    - host_vars/mrc.yaml
+  gather_facts: true
+
+  roles:
+    - role: couchdb_cluster
